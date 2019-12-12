@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>EditarAlumno</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list lines="full">
+    <ion-item *ngIf="alumno">
+     <ion-input required type="text" placeholder="DNI" [(ngModel)]="alumno.DNI"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="alumno">
+      <ion-input required type="text" placeholder="Nombre" [(ngModel)]="alumno.Nombre"></ion-input>
+     </ion-item>
+     <ion-item *ngIf="alumno">
+      <ion-input required type="text" placeholder="Apellidos" [(ngModel)]="alumno.Apellidos"></ion-input>
+     </ion-item>
+     <ion-item *ngIf="alumno">
+      <ion-input required type="number" placeholder="Edad" [(ngModel)]="alumno.Edad"></ion-input>
+     </ion-item>
+     <ion-item *ngIf="alumno">
+      <ion-input required type="text" placeholder="Direccion" [(ngModel)]="alumno.Direccion"></ion-input>
+     </ion-item>
+     <ion-item *ngIf="alumno">
+      <ion-input required type="text" placeholder="Ciclo" [(ngModel)]="alumno.Ciclo"></ion-input>
+     </ion-item>
+     <ion-item *ngIf="alumno">
+      <ion-input required type="number" placeholder="Telefono" [(ngModel)]="alumno.Telefono"></ion-input>
+     </ion-item>
+     <ion-item *ngIf="alumno">
+      <ion-input required type="text" placeholder="Email" [(ngModel)]="alumno.Email"></ion-input>
+     </ion-item>
+
+     <ion-button expand="full" (click)='saveAlumno()'>Guardar</ion-button>
+  </ion-list>
+
+  <ion-fab style="padding-top: 100px;"  horizontal="start">
+  <ion-fab-button routerLink="/" routerDirection="forward">
+    <ion-icon name="home"></ion-icon>
+  </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab style="padding-top: 100px;"  horizontal="center">
+    <ion-fab-button color="success" expand="full" (click)="call()">
+      <ion-icon name="call"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+    <ion-fab style="padding-top: 100px;"  horizontal="end" >
+      <ion-fab-button color="danger" routerLink="/" routerDirection="forward" (click)="onRemove(alumnoId)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+  </ion-fab>
+</ion-content>

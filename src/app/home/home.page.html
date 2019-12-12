@@ -1,0 +1,50 @@
+
+<ion-header >
+  <ion-toolbar  color="primary">
+    <ion-title style="text-align: center;">CRUD Alumno</ion-title>
+</ion-toolbar>
+<ion-toolbar  color="primary">
+    <ion-searchbar  placeholder="Buscar" animated (ionChange)="buscarAlumno ( $event )"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding="true" class="has-header">
+    <table  class="table table-dark">
+            <thead>
+              <tr >
+                <th >DNI</th>
+                <th >Nombre</th>
+                <th >Edad</th>
+                <th >Direccion</th>
+                <th >Ciclo</th>
+                <th >Telefono</th>
+                <th >Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let alumno of alumnos | filtro: buscarParametro" lines="inset" button [routerLink]="['/editar',alumno.id]">
+                <td>{{alumno.DNI}}</td>
+                <td >{{alumno.Apellidos}},{{alumno.Nombre}}</td>
+                <td>{{alumno.Edad}}</td>
+                <td>{{alumno.Direccion}}</td>
+                <td>{{alumno.Ciclo}}</td>                  
+                <td>{{alumno.Telefono}}</td> 
+                <td>{{alumno.Email}}</td> 
+              </tr>
+            </tbody>
+          </table>
+
+    <ion-fab style="padding-top: 100px;"  horizontal="start" >
+      <ion-fab-button expand="full" (click)="sendEmail()">
+        <ion-icon name="mail"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-fab style="padding-top: 100px;"  horizontal="end" >
+      <ion-fab-button expand="full" routerLink="/editar" routerDirection="forward">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
